@@ -1,0 +1,54 @@
+
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "custom_brand_name": "Your Custom Store",
+      "custom_brand_description": "Welcome to our amazing store with custom features",
+      "custom_accent_color": "#6366f1",
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#6366f1",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#F8FAFC",
+            "background_gradient": "",
+            "text": "#1E293B",
+            "button": "#6366f1",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#1E293B",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  }
+}

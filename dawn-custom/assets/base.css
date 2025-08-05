@@ -1,0 +1,27 @@
+/* Custom Brand Styles */
+.custom-brand-accent {
+  color: var(--custom-accent-color);
+}
+
+.custom-brand-bg {
+  background-color: var(--custom-accent-color);
+}
+
+.custom-brand-border {
+  border-color: var(--custom-accent-color);
+}
+
+/* Enhanced button styles */
+.btn--custom {
+  background-color: var(--custom-accent-color);
+  border-color: var(--custom-accent-color);
+  transition: all 0.3s ease;
+}
+
+.btn--custom:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Custom properties */
+:root {
