@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom DeliWer colors */
+  --aqua-primary: hsl(178, 100%, 37%);
+  --aqua-secondary: hsl(205, 63%, 32%);
+  --dubai-gold: hsl(45, 86%, 60%);
+  --dubai-sand: hsl(55, 78%, 87%);
+  --dirham-green: hsl(146, 70%, 47%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-aqua-primary {
+    color: var(--aqua-primary);
+  }
+  
+  .text-aqua-secondary {
+    color: var(--aqua-secondary);
+  }
+  
+  .text-dubai-gold {
+    color: var(--dubai-gold);
+  }
+  
+  .text-dubai-sand {
+    color: var(--dubai-sand);
+  }
+  
+  .text-dirham-green {
+    color: var(--dirham-green);
+  }
+  
+  .bg-aqua-primary {
+    background-color: var(--aqua-primary);
+  }
+  
+  .bg-aqua-secondary {
+    background-color: var(--aqua-secondary);
+  }
+  
+  .bg-dubai-gold {
+    background-color: var(--dubai-gold);
+  }
+  
+  .bg-dubai-sand {
+    background-color: var(--dubai-sand);
+  }
+  
+  .bg-dirham-green {
+    background-color: var(--dirham-green);
+  }
+  
+  .hover\:bg-aqua-secondary:hover {
+    background-color: var(--aqua-secondary);
+  }
+  
+  .hover\:bg-dubai-gold:hover {
+    background-color: var(--dubai-gold);
+  }
+  
+  .border-aqua-primary {
+    border-color: var(--aqua-primary);
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(0, 188, 180, 0.9), rgba(30, 114, 150, 0.9));
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .calculator-result {
+    background: linear-gradient(135deg, hsl(219, 24%, 98%), hsl(214, 32%, 91%));
+    border: 2px solid hsl(214, 32%, 91%);
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 0.6s ease-out forwards;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--aqua-primary)), hsl(var(--aqua-secondary)));
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes slideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0px); 
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .animate-slideIn,
+  .animate-float,
+  .animate-pulse-slow {
+    animation: none;
+  }
+}
