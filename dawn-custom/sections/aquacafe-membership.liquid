@@ -1,0 +1,200 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .aquacafe-membership {
+    background: linear-gradient(135deg, {{ settings.dubai_sand }} 0%, #ffffff 100%);
+  }
+
+  .membership-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .membership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .membership-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .membership-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .membership-icon {
+    width: 80px;
+    height: 80px;
+    background: {{ settings.aqua_primary }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+  }
+
+  .membership-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+  }
+
+  .membership-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .membership-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+
+  .membership-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .membership-benefits li::before {
+    content: "💧";
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .membership-card-image {
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 749px) {
+    .membership-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .membership-card {
+      padding: 1.5rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="aquacafe-membership section-{{ section.id }}-padding">
+  <div class="membership-container">
+    <div class="membership-grid">
+      <div class="membership-card-image-container">
+        {% if section.settings.card_image != blank %}
+          <img src="{{ section.settings.card_image | image_url: width: 500 }}" 
+               alt="AquaCafe Membership Card" 
+               class="membership-card-image"
+               loading="lazy">
+        {% else %}
+          <div style="background: {{ settings.aqua_primary }}; height: 300px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600;">
+            AquaCafe Card
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="membership-card">
+        <div class="membership-icon">💧</div>
+        <h3 class="membership-title">{{ section.settings.title | default: "AquaCafe Loyalty Rewards" }}</h3>
+        <p class="membership-subtitle">{{ section.settings.subtitle | default: "Member Kit" }}</p>
+        
+        <ul class="membership-benefits">
+          <li>Hair Shower Filter FREE Gift with AquaCafe Membership</li>
+          <li>Exclusive member pricing on all water systems</li>
+          <li>Priority customer support and maintenance</li>
+          <li>Monthly water quality reports and tips</li>
+          <li>Access to premium AquaCafe community</li>
+          <li>Special discounts on DeliWer services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "AquaCafe Membership",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "AquaCafe Loyalty Rewards",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "default": "Member Kit",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_image",
+      "label": "Membership card image"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "AquaCafe Membership"
+    }
+  ]
+}
+{% endschema %}

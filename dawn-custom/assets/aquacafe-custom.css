@@ -1,0 +1,206 @@
+
+/* AquaCafe Custom Styles */
+:root {
+  --aqua-primary: #00BCC4;
+  --aqua-secondary: #1E7297;
+  --dubai-gold: #F2BA39;
+  --dubai-sand: #FAF1BA;
+  --dirham-green: #2EC482;
+}
+
+/* Update CSS variables from theme settings */
+{% if settings.aqua_primary %}
+  :root { --aqua-primary: {{ settings.aqua_primary }}; }
+{% endif %}
+{% if settings.aqua_secondary %}
+  :root { --aqua-secondary: {{ settings.aqua_secondary }}; }
+{% endif %}
+{% if settings.dubai_gold %}
+  :root { --dubai-gold: {{ settings.dubai_gold }}; }
+{% endif %}
+{% if settings.dubai_sand %}
+  :root { --dubai-sand: {{ settings.dubai_sand }}; }
+{% endif %}
+{% if settings.dirham_green %}
+  :root { --dirham-green: {{ settings.dirham_green }}; }
+{% endif %}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Enhanced Button Styles */
+.btn-aquacafe {
+  background: linear-gradient(135deg, var(--aqua-primary), var(--aqua-secondary));
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-aquacafe:hover {
+  background: linear-gradient(135deg, var(--dirham-green), var(--dubai-gold));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.btn-gold {
+  background: var(--dubai-gold);
+  color: #1a1a1a;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: var(--dirham-green);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Card Enhancements */
+.card-aquacafe {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,188,196,0.1);
+}
+
+.card-aquacafe:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border-color: var(--aqua-primary);
+}
+
+/* Gradient Backgrounds */
+.gradient-aqua {
+  background: linear-gradient(135deg, var(--aqua-primary) 0%, var(--aqua-secondary) 100%);
+}
+
+.gradient-sand {
+  background: linear-gradient(135deg, var(--dubai-sand) 0%, #ffffff 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--dubai-gold) 0%, #ffd700 100%);
+}
+
+/* Text Colors */
+.text-aqua-primary { color: var(--aqua-primary); }
+.text-aqua-secondary { color: var(--aqua-secondary); }
+.text-dubai-gold { color: var(--dubai-gold); }
+.text-dirham-green { color: var(--dirham-green); }
+
+/* Background Colors */
+.bg-aqua-primary { background-color: var(--aqua-primary); }
+.bg-aqua-secondary { background-color: var(--aqua-secondary); }
+.bg-dubai-gold { background-color: var(--dubai-gold); }
+.bg-dubai-sand { background-color: var(--dubai-sand); }
+.bg-dirham-green { background-color: var(--dirham-green); }
+
+/* Custom Icons */
+.icon-water {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.09 6.26L22 9l-5 4.87L18.18 22 12 18.77 5.82 22 7 13.87 2 9l6.91-.74L12 2z'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn-aquacafe,
+  .btn-gold {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .card-aquacafe {
+    padding: 1.5rem;
+  }
+}
+
+/* Custom form styling */
+.form-aquacafe input,
+.form-aquacafe textarea,
+.form-aquacafe select {
+  border: 2px solid rgba(0,188,196,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-aquacafe input:focus,
+.form-aquacafe textarea:focus,
+.form-aquacafe select:focus {
+  outline: none;
+  border-color: var(--aqua-primary);
+  box-shadow: 0 0 0 3px rgba(0,188,196,0.1);
+}
+
+/* Header customizations */
+.header-wrapper {
+  border-bottom: 1px solid rgba(0,188,196,0.1);
+}
+
+.header-brand {
+  color: var(--aqua-primary);
+  font-weight: 700;
+}
+
+/* Footer customizations */
+.footer-wrapper {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.footer-wrapper a {
+  color: var(--aqua-primary);
+  transition: color 0.3s ease;
+}
+
+.footer-wrapper a:hover {
+  color: var(--dubai-gold);
+}

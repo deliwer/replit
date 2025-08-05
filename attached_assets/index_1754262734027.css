@@ -1,0 +1,277 @@
+/* Font Integration */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AquaCafe Custom Colors */
+:root {
+  --aqua-primary: 0, 188, 180;
+  --aqua-secondary: 30, 114, 151;
+  --dubai-gold: 242, 186, 57;
+  --dubai-sand: 250, 241, 186;
+  --dirham-green: 46, 196, 130;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out both;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn,
+  .animate-slideUp {
+    animation: none;
+  }
+}
+
+:root {
+  --background: hsl(210, 40%, 98%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(188, 100%, 35%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* AquaCafe Custom Colors */
+  --aqua-primary: hsl(180, 100%, 35%);
+  --aqua-secondary: hsl(195, 79%, 29%);
+  --dubai-gold: hsl(43, 89%, 49%);
+  --dubai-sand: hsl(48, 95%, 88%);
+  --dirham-green: hsl(160, 84%, 39%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(188, 100%, 35%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Assistant', Arial, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1e293b;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .bg-aqua-primary {
+    background-color: hsl(var(--aqua-primary));
+  }
+  
+  .bg-aqua-secondary {
+    background-color: hsl(var(--aqua-secondary));
+  }
+  
+  .bg-dubai-gold {
+    background-color: hsl(var(--dubai-gold));
+  }
+  
+  .bg-dubai-sand {
+    background-color: hsl(var(--dubai-sand));
+  }
+  
+  .bg-dirham-green {
+    background-color: hsl(var(--dirham-green));
+  }
+  
+  .text-aqua-primary {
+    color: hsl(var(--aqua-primary));
+  }
+  
+  .text-aqua-secondary {
+    color: hsl(var(--aqua-secondary));
+  }
+  
+  .text-dubai-gold {
+    color: hsl(var(--dubai-gold));
+  }
+  
+  .text-dirham-green {
+    color: hsl(var(--dirham-green));
+  }
+  
+  .border-aqua-primary {
+    border-color: hsl(var(--aqua-primary));
+  }
+
+  .bg-gradient-aqua {
+    background: linear-gradient(135deg, hsl(var(--aqua-primary)), hsl(var(--aqua-secondary)));
+  }
+
+  .bg-gradient-dubai {
+    background: linear-gradient(135deg, hsl(var(--dubai-sand)), hsl(var(--dubai-gold)));
+  }
+}
+
+/* AI Chat Interface */
+.ai-chat-container {
+  background: linear-gradient(135deg, hsl(var(--aqua-primary)), hsl(var(--aqua-secondary)));
+}
+
+.ai-message {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Trade-in Calculator */
+.calculator-result {
+  background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)));
+  border: 2px solid hsl(var(--border));
+}
+
+/* Membership Card */
+.membership-card {
+  background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Backgrounds for Better Contrast */
+.section-white {
+  background: #ffffff;
+}
+
+.section-light {
+  background: #f8fafc;
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Hero Background */
+.hero-bg {
+  background-image: linear-gradient(
+    to right,
+    hsla(var(--aqua-primary), 0.9),
+    hsla(var(--aqua-secondary), 0.9)
+  );
+}
+
+/* Smooth Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--aqua-primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--aqua-secondary));
+}
