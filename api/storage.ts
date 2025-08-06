@@ -75,6 +75,10 @@ export class MemStorage implements IStorage {
       id,
       status: "pending",
       createdAt: new Date(),
+      email: insertApplication.email ?? null,
+      storage: insertApplication.storage ?? null,
+      comments: insertApplication.comments ?? null,
+      estimatedValue: insertApplication.estimatedValue ?? null,
     };
     this.tradeInApplications.set(id, application);
     return application;

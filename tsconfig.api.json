@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["api/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "api-dist",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "allowImportingTsExtensions": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["./shared/*"]
+    }
+  }
+} 
