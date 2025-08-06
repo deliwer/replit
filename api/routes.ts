@@ -1,6 +1,6 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 import { insertTradeInApplicationSchema, insertDeviceValuationSchema } from "../shared/schema";
 import { z } from "zod";
 
@@ -9,15 +9,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get device valuation
   app.get("/api/device-valuations", async (req, res) => {
     try {
-      const { model, storage, condition } = req.query;
+      const { model, storage: storageSize, condition } = req.query;
       
-      if (!model || !storage || !condition) {
+      if (!model || !storageSize || !condition) {
         return res.status(400).json({ message: "Model, storage, and condition are required" });
       }
 
       const valuation = await storage.getDeviceValuation(
         model as string,
-        storage as string,
+        storageSize as string,
         condition as string
       );
 

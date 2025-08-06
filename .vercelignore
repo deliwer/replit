@@ -1,0 +1,22 @@
+# Ignore raw TypeScript files since we're building to JavaScript
+api/**/*.ts
+server/**/*.ts
+
+# Ignore development files
+node_modules
+.git
+.gitignore
+README.md
+*.log
+
+# Ignore build artifacts that aren't needed
+dist
+build
+
+# Ignore test files
+**/*.test.ts
+**/*.spec.ts
+
+# Ignore development configs
+.env.local
+.env.development 
