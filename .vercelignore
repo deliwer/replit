@@ -1,5 +1,5 @@
 # Ignore raw TypeScript files since we're building to JavaScript
-api/**/*.ts
+api-src/**/*.ts
 server/**/*.ts
 
 # Ignore development files
@@ -12,6 +12,7 @@ README.md
 # Ignore build artifacts that aren't needed
 dist
 build
+api-dist
 
 # Ignore test files
 **/*.test.ts

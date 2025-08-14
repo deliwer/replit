@@ -3,16 +3,16 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api-dist/index.js"
+      "dest": "/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/api-dist/index.js"
+      "dest": "/api/index.js"
     }
   ],
   "functions": {
-    "api-dist/index.js": {
+    "api/index.js": {
       "maxDuration": 30
     }
   }
-} 
+}
